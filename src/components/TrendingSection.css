@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+.trending-section {
+  background-color: #0a1519;
+  display: flex;
+  flex-direction: column;
+  color: #aaa; 
+  font-family: 'Lexend';
+  padding: 0.4rem 1rem 1rem 1rem;
+}
+
+.trending-item {
+  background : linear-gradient(135deg, #230b2e, #230b2e);
+  position: relative;
+  padding : 0.2rem 1rem 1rem 1rem; 
+  margin: 0.4rem 0.5rem 0.2rem 0.5rem;
+  border-radius: 20px;
+  text-align: left;
+  color: fff;
+  box-shadow: 3px 4px 15px 3px rgba(102, 9, 71, 0.3);
+  font-weight: bold;
+  transition: transform 0.7s ease; 
+}
+
+.trending-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.2) 100%);
+  border-radius: 20px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.trending-item:hover {
+  transform: scale(1.03);
+}
+
+.trending-item h4 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-family: 'Lexend';
+  font-weight: bold;
+  z-index: 2;  
+}
+
+.trending-item p {
+  font-size: 0.9rem;
+  color: #bbb;
+  margin-bottom: 20px;
+  font-family: 'Lexend';
+}
+
+.trending-item button {
+  background-color: white;;
+  color:  #000000;
+  padding: 12px 20px;
+  margin-top: 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.7s ease;
+  font-family: 'Lexend';
+  font-weight: bold;
+
+}
+
+.trending-item button:hover {
+  background: linear-gradient(135deg, #fffeff, rgba(185, 48, 212, 0) 95%);
+  color: white;
+}

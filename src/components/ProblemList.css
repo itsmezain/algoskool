@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+.problem-list-container {
+  background-color: #0a1519; 
+  display: flex;
+  flex-direction: column;
+  width : 65%;
+  
+}
+
+.problem-list-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF;
+  font-family: 'Lexend';
+  text-align: center;
+  padding: 10px 10px;
+  background-color: #2f1349;
+  background: linear-gradient(135deg, #230b2e, #320b2e);
+  border-bottom: 0.05rem solid rgba(48,60,63,255);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-top: 0.4rem;
+  position: relative;
+}
+
+.problem-list-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.2) 100%);
+  border-radius: 8px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+.problem-list-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(225deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.2) 100%);
+  border-radius: 8px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.problem-table {
+  width: 98%;
+  border-collapse: collapse;
+  border-radius: 20px;
+  font-family: 'Lexend';
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  
+}
+
+.problem-table th, .problem-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 0.05rem solid rgba(48,60,63,255);
+  color: #fff;
+  font-size: 16px;
+  font-family: 'Lexend';
+  
+}
+
+.problem-table th {
+  background : linear-gradient(135deg, #230b2e, #230b2e);
+  position: relative;
+  box-shadow: 3px 4px 15px 3px rgba(102, 9, 71, 0.3);
+  font-weight: bold;
+}
+
+.problem-table th::before {
+  content: '';
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.2) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+.problem-table tr:nth-child(even) {
+  background-color: #2c2c2c;
+}
+
+.problem-table tr:hover {
+  background-color: #444;
+  border-collapse: collapse;
+}
+
+#problem-topics {
+  color : #969a9d; 
+}
+
+.difficulty {
+  padding: 5px 10px;
+  color: white;
+  border-collapse: collapse;
+}
+
+.difficulty.easy {
+  color: #28a745; 
+}
+
+.difficulty.medium {
+  color: #f5a232; 
+}
+
+.difficulty.hard {
+  color: #dc3545; 
+}
+
+.vertical-line{
+  border-right: 0.05rem solid rgba(48,60,63,255);
+  border-left: 0.05rem solid rgba(48,60,63,255);
+  height: 100%;
+}

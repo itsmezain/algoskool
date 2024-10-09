@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css");
+
+:root {
+  --text-primary-color: #f7f7f7;
+  --text-secondary-color: #9da1a3;
+  --text-navlinks-bg-color: #232c30;
+}
+
+.circle {
+  background-color: var(--text-navlinks-bg-color);
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  padding: 0.5rem;
+}
+
+.problem-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0a1519;
+  color: #f7f7f7;
+  width: 100%;
+  height: 3.125rem;
+  z-index: 100;
+  top: 0;
+  position: sticky;
+}
+
+.problem-detail-header-logo {
+  padding-left: 2.75rem;
+  cursor: pointer;
+}
+
+.problem-detail-header-logo h1 {
+  background-color: rgba(190, 10, 255, 0.2);
+  font-family: "Lexend";
+  border-radius: 0.375rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text-primary-color);
+  transition: background-color 0.2s ease;
+}
+
+.problem-detail-header-logo :hover {
+  transform: scale(1.03);
+}
+
+.header-tools {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0.625rem;
+}
+
+.btn-run {
+  background-color: var(--text-navlinks-bg-color);
+  border:none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: "Lexend";
+  font-weight: 350;
+  padding: 5px 15px 5px 15px;
+  color: var(--text-primary-color);
+  text-decoration: none;
+}
+
+.btn-run:hover{
+    filter: drop-shadow(0 0 8px var(--text-secondary-color));
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.btn-submit {
+  background-color: var(--text-navlinks-bg-color);
+  border:none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: "Lexend";
+  font-weight: 350;
+  padding: 5px 15px 5px 15px;
+  color: rgb(21, 192, 95);
+}
+
+.btn-submit:hover{
+    filter: drop-shadow(0 0 8px #9da1a3);
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.problem-detail-header-icons {
+  display: flex;
+  align-items: center;
+  padding-right: 2.75rem;
+}
+
+.problem-detail-header-icons .icon {
+  font-size: 1rem;
+  color: var(--text-secondary-color);
+  cursor: pointer;
+  top: 20px;
+}
+
+.problem-detail-header-icons .icon:hover {
+  color: var(--text-primary-color);
+  transition: 0.3s ease-out;
+}
+
+.profile-picture {
+  cursor: pointer;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%; 
+  object-fit: cover; 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-picture:hover {
+  filter: drop-shadow(0 0 8px var(--text-secondary-color));
+  transition: 0.3s ease-in-out;
+}
+
+.horizontal-line {
+  width: 100%;
+  border-bottom: 0.05rem solid rgba(48, 60, 63, 255);
+  margin: 0;
+}
