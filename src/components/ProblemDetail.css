@@ -11,7 +11,6 @@
 .problem-detail-container {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 60px);
   background-color: var(--bg-color);
 }
 
@@ -26,13 +25,14 @@
   margin: 2rem;
   overflow-y: auto;
   background-color: #191f22;
-  border-right: 1px solid var(--border-color);
   padding-top: 10px;
   color: var(--text-primary-color);
+  font-family: 'Lexend';
   gap: 0.25rem;
   font-size: 1rem;
   font-weight: 250;
   border-radius: 6px;
+  scroll-behavior: smooth;
 }
 
 .problem-description h1,
@@ -42,32 +42,44 @@
 }
 
 .problem-difficulty {
-    font-weight: 300;
-  }
-  
-  .problem-difficulty.Easy {
-    color: green;
-  }
-  
-  .problem-difficulty.Medium {
-    color: orange;
-  }
-  
-  .problem-difficulty.Hard {
-    color: red;
-  }
+  font-weight: 300;
+}
 
-  .problem-description blockquote {
-    background-color: #000000;
-    padding: 10px 15px;
-    margin: 15px 0;
-    border-radius: 6px;
-  }
+.problem-difficulty.Easy {
+  color: green;
+}
+
+.problem-difficulty.Medium {
+  color: orange;
+}
+
+.problem-difficulty.Hard {
+  color: red;
+}
+
+.problem-description blockquote {
+  background-color: #222c30;
+  padding: 10px 15px;
+  margin: 15px 0;
+  border-radius: 6px;
+  color: var(--text-primary-color);
+}
 
 .code-editor-section {
   flex: 1;
   display: flex;
   flex-direction: column;
+  background-color: #222c30;
+  margin: 2rem;
+}
+
+
+.javascript,
+.python,
+.cpp,
+.java {
+  color: var(--text-secondary-color);
+  background-color: var(--text-navlinks-bg-color);
 }
 
 .editor-header {
@@ -77,6 +89,7 @@
   padding: 10px;
   background-color: var(--secondary-bg-color);
   border-bottom: 1px solid var(--border-color);
+  background-color: #191f22;
 }
 
 .editor-header select {
@@ -85,6 +98,9 @@
   border-radius: 4px;
   background-color: var(--secondary-bg-color);
   font-size: 14px;
+  font-family: "Lexend";
+  cursor: pointer;
+  color: var(--text-secondary-color);
 }
 
 .editor-buttons button {
@@ -102,39 +118,104 @@
   background-color: var(--button-hover-bg-color);
 }
 
-.testcase-section,
-.output-section {
-  padding: 10px;
-  background-color: var(--secondary-bg-color);
-  border-top: 1px solid var(--border-color);
+.writing-area {
+  background-color: var(--text-secondary-color);
 }
 
-.testcase-section label,
-.output-section label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: var(--primary-text-color);
+
+
+.tabs {
+  display: flex;
+  gap : 0.3rem;
+  margin-top: 5px;
+  
 }
 
-.testcase-section textarea {
+.tabs .bottom-header{
+  background-color: var(--bg-color);
+  border-radius: 6px;
   width: 100%;
-  height: 80px;
-  padding: 8px;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  font-family: monospace;
-  resize: vertical;
 }
 
-.output-section pre {
-  background-color: #f8f9fa;
+.tabs button {
+  padding: 10px 20px;
+  cursor: pointer;
+  background: var(--);
+  border: none;
+  outline: none;
+  background-color: var(--secondary-bg-color);
+  font-family: 'Lexend';
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text-secondary-color);
+  margin-top : 1rem;
+  
+}
+
+.tabs button.active {
+  font: var(--text-primary-color);
+  font-family: 'Lexend';
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary-color)
+}
+
+.test-case-content {
+  margin-top: 10px;
+  height: 10rem;
+  background-color: var(--bg-color);
+}
+
+.test-case-buttons {
+  display: flex;
+  margin-bottom: 10px;
+  margin-left: 1rem; 
+  margin-top: 10px;
+}
+
+.test-case-buttons button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  background-color: #191f22;
+  color: var(--text-secondary-color);
+  font-family: 'Lexend';
+  margin-top: 10px;
+}
+
+.test-case-buttons button.active {
+  background-color: #191f22;
+  color: var(--text-primary-color);
+}
+
+.input-textarea {
+  width: 100%;
+  height: 150px;
+  font-size: 14px;
+  font-family: 'Lexend';
   padding: 10px;
-  border-radius: 4px;
-  border: 1px solid var(--border-color);
-  overflow-x: auto;
+  box-sizing: border-box;
+  background-color: var(--text-navlinks-bg-color);
+  color: var(--text-primary-color)
+}
+
+.input-textarea .active{
+  width: 100%;
+  height: 150px;
+  font-size: 14px;
   font-family: monospace;
-  max-height: 150px;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: var(--text-navlinks-bg-color);
+  color: var(--text-primary-color);
+
+}
+
+.output-section {
+  height: 14rem;
 }
 
 
@@ -153,31 +234,45 @@
   cursor: col-resize;
 }
 
-.editor-buttons button {
-  background-color: #007bff;
-  border-color: #007bff;
-}
-
-.editor-buttons button:hover {
-  background-color: #0069d9;
-}
-
-.testcase-section textarea,
-.output-section pre {
-  font-size: 13px;
-  line-height: 1.5;
-}
 
 
 @media (max-width: 768px) {
-    .split-view {
-      flex-direction: column;
-    }
-  
-    .problem-description,
-    .code-editor-section {
-      flex: none;
-      width: 100%;
-    }
+  .split-view {
+    flex-direction: column;
   }
-  
+
+  .problem-description,
+  .code-editor-section {
+    flex: none;
+    width: 100%;
+  }
+}
+
+
+.input-display,
+.output-display {
+  background-color: #191f22;
+  padding: 10px;
+  font-family: monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: var(--text-primary-color);
+}
+
+.explanation-text {
+  margin-top: 10px;
+  color: var(--text-secondary-color);
+}
+
+.test-case-content strong {
+  display: block;
+  margin-top: 10px;
+  color: var(--text-primary-color);
+}
+
+.test-case-content p {
+  margin-top: 5px;
+  color: var(--text-secondary-color);
+}

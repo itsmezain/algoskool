@@ -2,9 +2,32 @@
   {
     "id": "1",
     "title": "Two Sum",
-    "description": "Given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`.\n\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\n\nYou can return the answer in any order.\n\n\nExample 1:\nInput: nums = [2,7,11,15], target = 9\nOutput: [0,1]\nOutput: Because nums[0] + nums[1] == 9, we return [0, 1].\n\nExample 2:\nInput: nums = [3,2,4], target = 6\nOutput: [1,2]\n\nExample 3:\nInput: nums = [3,3], target = 6\nOutput: [0,1]\n\nConstraints:\n`2 <= nums.length <= 103`\n`-109 <= nums[i] <= 109`\n`-109 <= target <= 109`\nOnly one valid answer exists.",
+    "description": "Given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`.\n\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\n\nYou can return the answer in any order.\n\n\nExample 1:\nInput: nums = [2,7,11,15], target = 9\nOutput: [0,1]\nExplanation: Because nums[0] + nums[1] == 9, we return [0, 1].\n\nExample 2:\nInput: nums = [3,2,4], target = 6\nOutput: [1,2]\n\nExample 3:\nInput: nums = [3,3], target = 6\nOutput: [0,1]\n\nConstraints:\n`2 <= nums.length <= 103`\n`-109 <= nums[i] <= 109`\n`-109 <= target <= 109`\n Only one valid answer exists.",
     "is_premium": "0",
     "difficulty": "Easy",
+    "test_cases": [
+      {
+        "input": {
+          "nums": [2, 7, 11, 15],
+          "target": 9
+        },
+        "expected_output": [0, 1]
+      },
+      {
+        "input": {
+          "nums": [3, 2, 4],
+          "target": 6
+        },
+        "expected_output": [1, 2]
+      },
+      {
+        "input": {
+          "nums": [3, 3],
+          "target": 6
+        },
+        "expected_output": [0, 1]
+      }
+    ],
     "solution_link": "/articles/two-sum",
     "acceptance_rate": "46.7",
     "frequency": "100.0",
@@ -18,6 +41,20 @@
     "dislikes": "712",
     "rating": "97",
     "asked_by_faang": "1",
+    "code_templates": {
+    "javascript": {
+      "template": "function twoSum(nums, target) {\n  // Write your code here\n}"
+    },
+    "python": {
+      "template": "def twoSum(nums, target):\n    # Write your code here"
+    },
+    "cpp": {
+      "template": "class Solution {\npublic:\n    vector<int> twoSum(vector<int>& nums, int target) {\n        // Write your code here\n    }\n};"
+    },
+    "java": {
+      "template": "class Solution {\n    public int[] twoSum(int[] nums, int target) {\n        // Write your code here\n    }\n}"
+    }
+  },
     "similar_questions": "[3Sum, /problems/3sum/, Medium], [4Sum, /problems/4sum/, Medium], [Two Sum II - Input array is sorted, /problems/two-sum-ii-input-array-is-sorted/, Easy], [Two Sum III - Data structure design, /problems/two-sum-iii-data-structure-design/, Easy], [Subarray Sum Equals K, /problems/subarray-sum-equals-k/, Medium], [Two Sum IV - Input is a BST, /problems/two-sum-iv-input-is-a-bst/, Easy], [Two Sum Less Than K, /problems/two-sum-less-than-k/, Easy], [Max Number of K-Sum Pairs, /problems/max-number-of-k-sum-pairs/, Medium], [Count Good Meals, /problems/count-good-meals/, Medium]"
   },
   {
