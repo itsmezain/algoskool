@@ -1,0 +1,82 @@
+.trending-card{
+    background-color: black;
+    border-radius: 0.75rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden; /* Clips the content that goes beyond the card's boundaries */
+    clip-path: inset(0 round 0.75rem);
+  }
+  
+  .trending-card-bg-shape-left{
+    height: 20rem;
+    width: 20rem;
+    rotate: -90deg;
+    position: absolute;
+    z-index: 1;
+    bottom: -5rem;
+    left: -10rem;
+    filter: blur(4rem) opacity(0.6) hue-rotate(-133deg);
+  }
+  
+  .trending-card-bg-shape-right{
+    height: 20rem;
+    width: 20rem;
+    rotate: -90deg;
+    position: absolute;
+    z-index: 1;
+    bottom: -8rem;
+    right: -10rem;
+    filter: blur(4rem) opacity(0.6) hue-rotate(-133deg);
+  }
+  
+  .trending-card-content{
+    padding: 1rem 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .trending-card-title{
+    font-weight: bold;
+    color: var(--text-primary-color);
+    font-size: 1.2rem;
+  }
+  
+  .trending-card-content .trending-card-description{
+    color: var(--text-primary-color);
+    font-weight: 300;
+    font-size: 0.75rem;
+  }
+  
+  .trending-card-design{
+    padding: 1rem 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .trending-card-design .sparkles{
+    font-size: 4rem;
+    color: var(--text-primary-color);
+    opacity: 0.3;
+    rotate: 180deg;
+  }
+  
+  .trending-card-design button{
+    font-size: 1rem;
+    padding: 12px 20px;
+    background-color: var(--text-primary-color);
+    color: black;
+    font-weight: bold;
+    font-family: "Lexend";
+    border: none;
+    border-radius: 0.875rem;
+  }
