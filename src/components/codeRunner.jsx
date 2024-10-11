@@ -1,6 +1,4 @@
-// codeRunner.jsx
-
-export async function runCode({ code, testCases, languageId, apiKey, language }) {
+export async function runCode({ code, testCases, languageId, apiKey, language, functionName  }) {
   const results = [];
 
   const submissionUrl =
@@ -12,7 +10,7 @@ export async function runCode({ code, testCases, languageId, apiKey, language })
     const expectedOutput = testCase.expected_output;
 
     // Prepare the full source code to be executed
-    const fullSourceCode = prepareFullSourceCode(code, input, language);
+    const fullSourceCode = prepareFullSourceCode(code, input, language, functionName);
 
     const encodedCode = btoa(fullSourceCode);
 
@@ -104,11 +102,35 @@ export async function runCode({ code, testCases, languageId, apiKey, language })
   return results;
 }
 
-function prepareFullSourceCode(userCode, input, language) {
+function prepareFullSourceCode(userCode, input, language, functionName) {
   // Based on the language, prepare the code that includes:
   // - The user's code
   // - Code to call the user's function with test inputs
   // - Code to print the output
+
+  function formatCppVector(array) {
+    // If array is a string, parse it into an array
+    if (typeof array === 'string') {
+      array = JSON.parse(array);
+    }
+    if (Array.isArray(array)) {
+      return "{" + array.join(", ") + "}";
+    } else {
+      throw new Error("input.nums is not an array");
+    }
+  }
+
+  function formatJavaArray(array) {
+    if (typeof array === 'string') {
+      array = JSON.parse(array);
+    }
+    if (Array.isArray(array)) {
+      return "new int[]{" + array.join(", ") + "}";
+    } else {
+      throw new Error("input.nums is not an array");
+    }
+  }
+
 
   switch (language) {
     case "javascript":
@@ -133,13 +155,15 @@ ${userCode}
 
 int main() {
     Solution sol;
-    vector<int> nums = ${JSON.stringify(input.nums)};
+    vector<int> nums = ${formatCppVector(input.nums)};
     int target = ${input.target};
-    vector<int> result = sol.twoSum(nums, target);
+    vector<int> result = sol.${functionName}(nums, target);
+    cout << "[";
     for(int i = 0; i < result.size(); i++) {
         cout << result[i];
         if(i < result.size() - 1) cout << ",";
     }
+    cout << "]";
     return 0;
 }
 `;
@@ -152,10 +176,15 @@ ${userCode}
 class Main {
     public static void main(String[] args) {
         Solution sol = new Solution();
-        int[] nums = ${JSON.stringify(input.nums)};
+        int[] nums = ${formatJavaArray(input.nums)};
         int target = ${input.target};
-        int[] result = sol.twoSum(nums, target);
-        System.out.println(Arrays.toString(result));
+        int[] result = sol.${functionName}(nums, target);
+        System.out.print("[");
+        for(int i = 0; i < result.length; i++) {
+            System.out.print(result[i]);
+            if(i < result.length - 1) System.out.print(",");
+        }
+        System.out.println("]");
     }
 }
 `;
@@ -165,13 +194,12 @@ class Main {
 }
 
 function compareOutputs(actualOutput, expectedOutput) {
-  // Normalize outputs
-  const normalize = (output) => output.replace(/\s+/g, "").trim();
-
-  const formattedActualOutput = normalize(actualOutput);
-  const formattedExpectedOutput = normalize(
-    typeof expectedOutput === "object" ? JSON.stringify(expectedOutput) : expectedOutput.toString()
-  );
-
-  return formattedActualOutput === formattedExpectedOutput;
+  try {
+    const actual = JSON.parse(actualOutput);
+    const expected = typeof expectedOutput === 'string' ? JSON.parse(expectedOutput) : expectedOutput;
+    return JSON.stringify(actual) === JSON.stringify(expected);
+  } catch (e) {
+    // Fallback to string comparison if parsing fails
+    return actualOutput.trim() === expectedOutput.trim();
+  }
 }

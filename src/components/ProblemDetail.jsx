@@ -77,9 +77,11 @@ function ProblemDetail() {
 
   useEffect(() => {
     if (problem) {
-      const template =
-        problem.code_templates[language]?.template || "// Write your code here";
-      setCode(template);
+      if (problem.code_templates && problem.code_templates[language]) {
+        setCode(problem.code_templates[language].template);
+      } else {
+        setCode("// Template is not defined for this question");
+      }
     }
   }, [language, problem]);
 
@@ -98,6 +100,9 @@ function ProblemDetail() {
     java: 62, // Java
   };
 
+  const language_id = languageToId[language];
+
+
   const handleRunCode = async () => {
     try {
       setOutput("Executing code...");
@@ -108,18 +113,21 @@ function ProblemDetail() {
         return;
       }
 
-    const apiKey = "32c033bdd3mshb34ab7e5f04a9e4p1288d0jsn4e486741b2a1";
 
-    const results = await runCode({
-      code,
-      testCases: problem.test_cases,
-      languageId: languageToId,
-      apiKey: apiKey,
-      language: language,
-    });
+      const apiKey = "e85bd6487emsh29c212f750f9122p1009a6jsn9f9bbb93d690";
 
-    // Build the output message
-    let outputMessage = "";
+
+      const results = await runCode({
+        code,
+        testCases: problem.test_cases.slice(0, 3),
+        languageId: languageToId,
+        apiKey: apiKey,
+        language: language,
+        functionName: problem.function_name,
+      });
+
+      // Build the output message
+      let outputMessage = "";
 
     results.forEach((result) => {
       outputMessage += `Test Case ${result.idx + 1}: ${
@@ -136,16 +144,59 @@ function ProblemDetail() {
       }
     });
 
-    setOutput(outputMessage);
-    setSelectedTab("Output"); // Switch to Output tab
-  } catch (error) {
-    console.error("Error in handleRunCode:", error);
-    setOutput("An error occurred while executing your code.");
-  }
-};
+      setOutput(outputMessage);
+      setSelectedTab("Output"); // Switch to Output tab
+    } catch (error) {
+      console.error("Error in handleRunCode:", error);
+      setOutput("An error occurred while executing your code.");
+    }
+  };
 
   const handleSubmitCode = async () => {
-    await handleRunCode();
+    try {
+      setOutput("Executing code...");
+
+      const language_id = languageToId[language];
+      if (!language_id) {
+        setOutput("Language not supported.");
+        return;
+      }
+
+      const apiKey = "9025b1cf78mshb68b5903b7c08eap158205jsnb243f2378583";
+
+      
+      const results = await runCode({
+        code,
+        testCases: problem.test_cases,
+        languageId: languageToId, // Pass languageId as a number
+        apiKey: apiKey,
+        language: language,
+        functionName: problem.function_name,
+      });
+
+      let outputMessage = "";
+
+      results.forEach((result) => {
+        outputMessage += `Test Case ${result.idx + 1}: ${
+          result.passed ? "Passed" : "Failed"
+        }\n`;
+        if (!result.passed) {
+          outputMessage += `Input:\n${JSON.stringify(result.input, null, 2)}\n`;
+          outputMessage += `Expected Output:\n${JSON.stringify(
+            result.expectedOutput,
+            null,
+            2
+          )}\n`;
+          outputMessage += `Your Output:\n${result.actualOutput}\n\n`;
+        }
+      });
+
+      setOutput(outputMessage);
+      setSelectedTab("Output"); // Switch to Output tab
+    } catch (error) {
+      console.error("Error in handleSubmitCode:", error);
+      setOutput("An error occurred while executing your code.");
+    }
   };
 
   if (!problem) {

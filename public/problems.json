@@ -41,6 +41,7 @@
     "dislikes": "712",
     "rating": "97",
     "asked_by_faang": "1",
+    "function_name": "twoSum",
     "code_templates": {
     "javascript": {
       "template": "function twoSum(nums, target) {\n  // Write your code here\n}"
@@ -57,12 +58,36 @@
   },
     "similar_questions": "[3Sum, /problems/3sum/, Medium], [4Sum, /problems/4sum/, Medium], [Two Sum II - Input array is sorted, /problems/two-sum-ii-input-array-is-sorted/, Easy], [Two Sum III - Data structure design, /problems/two-sum-iii-data-structure-design/, Easy], [Subarray Sum Equals K, /problems/subarray-sum-equals-k/, Medium], [Two Sum IV - Input is a BST, /problems/two-sum-iv-input-is-a-bst/, Easy], [Two Sum Less Than K, /problems/two-sum-less-than-k/, Easy], [Max Number of K-Sum Pairs, /problems/max-number-of-k-sum-pairs/, Medium], [Count Good Meals, /problems/count-good-meals/, Medium]"
   },
+
   {
     "id": "2",
     "title": "Add Two Numbers",
     "description": "You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.\n\nYou may assume the two numbers do not contain any leading zero, except the number 0 itself.\n\n\nExample 1:\nInput: l1 = [2,4,3], l2 = [5,6,4]\nOutput: [7,0,8]\nExplanation: 342 + 465 = 807.\n\n\nExample 2:\nInput: l1 = [0], l2 = [0]\nOutput: [0]\n\nExample 3:\nInput: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]\nOutput: [8,9,9,9,0,0,0,1]\n\nConstraints:\nThe number of nodes in each linked list is in the range `[1, 100]`.\n\n`0 <= Node.val <= 9`\nIt is guaranteed that the list represents a number that does not have leading zeros.",
     "is_premium": "0",
     "difficulty": "Medium",
+    "test_cases": [
+      {
+        "input": {
+          "l1": [2, 4, 3],
+          "l2": [5, 6, 4]
+        },
+        "expected_output": [7, 0, 8]
+      },
+      {
+        "input": {
+          "l1": [0],
+          "l2": [0]
+        },
+        "expected_output": [0]
+      },
+      {
+        "input": {
+          "l1": [9, 9, 9, 9, 9, 9, 9],
+          "l2": [9, 9, 9, 9]
+        },
+        "expected_output": [8, 9, 9, 9, 0, 0, 0, 1]
+      }
+    ],
     "solution_link": "/articles/add-two-numbers",
     "acceptance_rate": "35.7",
     "frequency": "93.1",
@@ -76,8 +101,27 @@
     "dislikes": "2704",
     "rating": "81",
     "asked_by_faang": "1",
+    
+    "function_name": "addNumbers",
+    "code_templates": {
+      "javascript": {
+        "template": "function addTwoNumbers(l1, l2) {\n  // Write your code here\n}"
+      },
+      "python": {
+        "template": "def addTwoNumbers(l1, l2):\n    # Write your code here"
+      },
+      "cpp": {
+        "template": "class Solution {\npublic:\n    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {\n        // Write your code here\n    }\n};"
+      },
+      "java": {
+        "template": "class Solution {\n    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {\n        // Write your code here\n    }\n}"
+      }
+    },
     "similar_questions": "[Multiply Strings, /problems/multiply-strings/, Medium], [Add Binary, /problems/add-binary/, Easy], [Sum of Two Integers, /problems/sum-of-two-integers/, Medium], [Add Strings, /problems/add-strings/, Easy], [Add Two Numbers II, /problems/add-two-numbers-ii/, Medium], [Add to Array-Form of Integer, /problems/add-to-array-form-of-integer/, Easy], [Add Two Polynomials Represented as Linked Lists, /problems/add-two-polynomials-represented-as-linked-lists/, Medium]"
+    
   },
+  
+
   {
     "id": "3",
     "title": "Longest Substring Without Repeating Characters",
