@@ -5,6 +5,7 @@
   flex-direction: column;
   flex: 1;
   font-family: 'Lexend';
+  height: 100vh;
 }
 
 .main-content {
